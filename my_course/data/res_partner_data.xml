@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <record id="partner_1" model="res.partner">
+            <field name="name">Aby Wills</field>
+            <field name="phone">9865432344</field>
+            <field name="email">aby@example.com</field>
+        </record>
+    </data>
+</odoo>

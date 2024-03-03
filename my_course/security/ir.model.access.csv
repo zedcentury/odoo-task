@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"my_course_id","my_course_name","model_my_course","",1,0,1,0
+access_my_course,access_my_course,model_my_course,base.group_user,0,0,0,0
+low_access_my_course,low_access_my_course,model_my_course,my_course.course_groups_low_level,1,0,0,0
+middle_access_my_course,middle_access_my_course,model_my_course,my_course.course_groups_middle_level,1,1,1,0
+admin_access_my_course,admin_access_my_course,model_my_course,my_course.course_groups_admin_level,1,1,1,1

@@ -1,0 +1,94 @@
+<odoo>
+    <data>
+        <record id="my_course_action" model="ir.actions.act_window">
+            <field name="name">Course</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">my_course</field>
+            <field name="view_mode">kanban,form,tree,graph,pivot</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new record!
+                </p>
+            </field>
+        </record>
+
+        <record id="my_course_form" model="ir.ui.view">
+            <field name="name">my_course.form</field>
+            <field name="model">my_course</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="price"/>
+                                <field name="is_active"/>
+                            </group>
+                            <group>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="my_course_search" model="ir.ui.view">
+            <field name="name">my_course.search</field>
+            <field name="model">my_course</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="description"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="my_course_tree" model="ir.ui.view">
+            <field name="name">my_course.tree</field>
+            <field name="model">my_course</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description" groups="my_course.access_my_course"/>
+                    <field name="price"/>
+                    <field name="is_active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="my_course_kanban" model="ir.ui.view">
+            <field name="name">my_course.tree</field>
+            <field name="model">my_course</field>
+            <field name="arch" type="xml">
+<!--                <kanban create="False">-->
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <xpath expr="//div[@class='oe_kanban_global_click']" position="inside">
+                                    <img src="https://www.etudemy.com/wp-content/uploads/2022/01/Computer-Courses-in-Perinthalmanna-python-Copy.jpg"
+                                         style="max-width: 100%;"/>
+                                </xpath>
+                                <p style="font-size: 20px; margin-top: 8px">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                </p>
+                                <p>
+                                    <field name="description"/>
+                                </p>
+                                <p style="font-size: 18px">
+                                    <field name="price"/>
+                                    so'm
+                                </p>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <menuitem id="my_course_menu" name="Courses" sequence="1" action="my_course_action"/>
+    </data>
+</odoo>

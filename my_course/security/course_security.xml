@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <record id="course_groups_category" model="ir.module.category">
+            <field name="name">Course</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="course_groups" model="res.groups">
+            <field name="name">Course List</field>
+            <field name="category_id" ref="my_course.course_groups_category"/>
+        </record>
+
+        <record id="course_groups2" model="res.groups">
+            <field name="name">Course List2</field>
+            <field name="category_id" ref="my_course.course_groups_category"/>
+        </record>
+
+        <record id="course_security" model="ir.model.access">
+            <field name="name">Course permission</field>
+            <!--
+            Model name: my_course, my.course
+            Ref: model_my_course or my_model.model_my_course
+            -->
+            <field name="model_id" ref="my_course.model_my_course"/>
+            <field name="group_id" ref="my_course.course_groups"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">0</field>
+            <field name="perm_create">0</field>
+            <field name="perm_unlink">0</field>
+        </record>
+
+        <record id="course_rule" model="ir.rule">
+            <field name="name">Access Course</field>
+            <field name="model_id" ref="my_course.model_my_course"/>
+            <!--
+            user.id - ID of the currently logged-in user
+            -->
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('my_course.course_groups'))]"/>
+        </record>
+
+        <record id="course_groups_category_combobox" model="ir.module.category">
+            <field name="name">Course Combobox</field>
+        </record>
+
+        <record id="course_groups_category_combobox_child" model="ir.module.category">
+            <field name="name">Course Combobox child</field>
+            <field name="parent_id" ref="my_course.course_groups_category_combobox"/>
+        </record>
+
+        <record id="course_groups_low_level" model="res.groups">
+            <field name="name">Course Low Level</field>
+            <field name="category_id" ref="my_course.course_groups_category_combobox_child"/>
+        </record>
+
+        <record id="course_groups_middle_level" model="res.groups">
+            <field name="name">Course Middle Level</field>
+            <field name="category_id" ref="my_course.course_groups_category_combobox_child"/>
+            <field name="implied_ids" eval="[(6, 0, [ref('my_course.course_groups_low_level')])]"/>
+        </record>
+
+        <record id="course_groups_admin_level" model="res.groups">
+            <field name="name">Course Admin Level</field>
+            <field name="category_id" ref="my_course.course_groups_category_combobox_child"/>
+            <field name="implied_ids" eval="[(6, 0, [ref('my_course.course_groups_middle_level')])]"/>
+        </record>
+    </data>
+</odoo>

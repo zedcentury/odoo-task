@@ -1,0 +1,102 @@
+<odoo>
+    <data>
+        <record id="my_student_action" model="ir.actions.act_window">
+            <field name="name">Student</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">my_student</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new record!
+                </p>
+            </field>
+        </record>
+
+        <record id="my_student_form" model="ir.ui.view">
+            <field name="name">my_student.form</field>
+            <field name="model">my_student</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="first_name"/>
+                                <field name="last_name"/>
+                                <field name="age"/>
+                            </group>
+                            <group>
+                                <field name="phone_number"/>
+                                <field name="address"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--        <record id="my_student_search" model="ir.ui.view">-->
+        <!--            <field name="name">my_student.search</field>-->
+        <!--            <field name="model">my_student</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search>-->
+        <!--                    <field name="name"/>-->
+        <!--                    <field name="description"/>-->
+        <!--                    <separator/>-->
+        <!--                    <filter name="active" string="Active" domain="[('active', '=', False)]"/>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="my_student_tree" model="ir.ui.view">
+            <field name="name">my_student.tree</field>
+            <field name="model">my_student</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="age"/>
+                    <field name="phone_number"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="my_student_kanban" model="ir.ui.view">
+            <field name="name">my_student.tree</field>
+            <field name="model">my_student</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div style="display: flex; flex-direction: column; align-items: center;">
+                                    <xpath expr="//div[@class='oe_kanban_global_click']" position="inside">
+                                        <img src="https://i.imgur.com/7eof6KZ.png"
+                                             style="max-width: 100px; border-radius: 50%;"/>
+                                    </xpath>
+                                    <div style="font-size: 20px; font-weight: 500; margin-top: 4px; margin-bottom: 4px;">
+                                        <field name="full_name"/>
+                                    </div>
+                                    <field name="address"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <menuitem id="my_student_menu" name="Students" sequence="1" action="my_student_action"/>
+
+        <!--                <menuitem id="my_student_menu" name="Courses" sequence="1">-->
+        <!--                    <menuitem id="my_student_sub_menu1" name="Dashboard" sequence="1"/>-->
+        <!--                    <menuitem id="my_student_sub_menu2" name="Course actions" sequence="2">-->
+        <!--                        <menuitem id="my_student_sub_sub_menu21" name="List of courses" action="my_student_action" sequence="1"/>-->
+        <!--                        <menuitem id="my_student_sub_sub_menu22" name="New course" action="my_student_action" sequence="2"/>-->
+        <!--                    </menuitem>-->
+        <!--                    <menuitem id="my_student_sub_menu3" name="Additional settings" sequence="3">-->
+        <!--                        <menuitem id="my_student_sub_sub_menu31" name="Default values" action="my_student_action" sequence="1"/>-->
+        <!--                    </menuitem>-->
+        <!--                </menuitem>-->
+    </data>
+</odoo>

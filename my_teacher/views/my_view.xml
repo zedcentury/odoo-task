@@ -1,0 +1,108 @@
+<odoo>
+    <data>
+        <record id="my_teacher_action" model="ir.actions.act_window">
+            <field name="name">Teacher</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">my_teacher</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new record!
+                </p>
+            </field>
+        </record>
+
+        <record id="my_teacher_form" model="ir.ui.view">
+            <field name="name">my_teacher.form</field>
+            <field name="model">my_teacher</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="first_name"/>
+                                <field name="last_name"/>
+                                <field name="age"/>
+                            </group>
+                            <group>
+                                <field name="phone_number"/>
+                                <field name="address"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--        <record id="my_teacher_search" model="ir.ui.view">-->
+        <!--            <field name="name">my_teacher.search</field>-->
+        <!--            <field name="model">my_teacher</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search>-->
+        <!--                    <field name="name"/>-->
+        <!--                    <field name="description"/>-->
+        <!--                    <separator/>-->
+        <!--                    <filter name="active" string="Active" domain="[('active', '=', False)]"/>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="my_teacher_tree" model="ir.ui.view">
+            <field name="name">my_teacher.tree</field>
+            <field name="model">my_teacher</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="age"/>
+                    <field name="phone_number"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="my_teacher_kanban" model="ir.ui.view">
+            <field name="name">my_teacher.tree</field>
+            <field name="model">my_teacher</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click" style="border-radius: 8px; padding: 12px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <strong>Full name</strong>
+                                    <field name="full_name"/>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <strong>Age</strong>
+                                    <field name="age"/>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <strong>Phone number</strong>
+                                    <field name="phone_number"/>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <strong>Address</strong>
+                                    <field name="address"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <menuitem id="my_teacher_menu" name="Teachers" sequence="1" action="my_teacher_action"/>
+
+        <!--                <menuitem id="my_teacher_menu" name="Courses" sequence="1">-->
+        <!--                    <menuitem id="my_teacher_sub_menu1" name="Dashboard" sequence="1"/>-->
+        <!--                    <menuitem id="my_teacher_sub_menu2" name="Course actions" sequence="2">-->
+        <!--                        <menuitem id="my_teacher_sub_sub_menu21" name="List of courses" action="my_teacher_action" sequence="1"/>-->
+        <!--                        <menuitem id="my_teacher_sub_sub_menu22" name="New course" action="my_teacher_action" sequence="2"/>-->
+        <!--                    </menuitem>-->
+        <!--                    <menuitem id="my_teacher_sub_menu3" name="Additional settings" sequence="3">-->
+        <!--                        <menuitem id="my_teacher_sub_sub_menu31" name="Default values" action="my_teacher_action" sequence="1"/>-->
+        <!--                    </menuitem>-->
+        <!--                </menuitem>-->
+    </data>
+</odoo>

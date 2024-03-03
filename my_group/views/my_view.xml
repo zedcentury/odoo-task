@@ -1,0 +1,104 @@
+<odoo>
+    <data>
+        <record id="my_group_action" model="ir.actions.act_window">
+            <field name="name">Group</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">my_group</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new record!
+                </p>
+            </field>
+        </record>
+
+        <record id="my_group_form" model="ir.ui.view">
+            <field name="name">my_group.form</field>
+            <field name="model">my_group</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="teacher" widget="many2one"/>
+                                <field name="course" widget="many2one"/>
+                            </group>
+                            <group>
+                                <field name="students" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--        <record id="my_group_search" model="ir.ui.view">-->
+        <!--            <field name="name">my_group.search</field>-->
+        <!--            <field name="model">my_group</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search>-->
+        <!--                    <field name="name"/>-->
+        <!--                    <separator/>-->
+        <!--                    <filter name="active" string="Active" domain="[('active', '=', False)]"/>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="my_group_tree" model="ir.ui.view">
+            <field name="name">my_group.tree</field>
+            <field name="model">my_group</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Nomi"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--        <record id="my_group_kanban" model="ir.ui.view">-->
+        <!--            <field name="name">my_group.tree</field>-->
+        <!--            <field name="model">my_group</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <kanban>-->
+        <!--                    <templates>-->
+        <!--                        <t t-name="kanban-box">-->
+        <!--                            <div t-attf-class="oe_kanban_global_click">-->
+        <!--                                <xpath expr="//div[@class='oe_kanban_global_click']" position="inside">-->
+        <!--                                    <img src="https://www.etudemy.com/wp-content/uploads/2022/01/Computer-Courses-in-Perinthalmanna-python-Copy.jpg"-->
+        <!--                                         style="max-width: 100%;"/>-->
+        <!--                                </xpath>-->
+        <!--                                <p style="margin-top: 8px; font-size: 20px">-->
+        <!--                                    <strong>-->
+        <!--                                        <field name="name"/>-->
+        <!--                                    </strong>-->
+        <!--                                </p>-->
+        <!--                                <p>-->
+        <!--                                    <field name="description"/>-->
+        <!--                                </p>-->
+        <!--                                <p style="font-size: 18px">-->
+        <!--                                    <field name="price"/>-->
+        <!--                                    so'm-->
+        <!--                                </p>-->
+        <!--                                <p t-if="record.active" style="color: green;">Active</p>-->
+        <!--                                <p t-if="!record.active" style="color: red;">Inactive</p>-->
+        <!--                            </div>-->
+        <!--                        </t>-->
+        <!--                    </templates>-->
+        <!--                </kanban>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <menuitem id="my_group_menu" name="Groups" sequence="1" action="my_group_action"/>
+
+        <!--                <menuitem id="my_group_menu" name="Courses" sequence="1">-->
+        <!--                    <menuitem id="my_group_sub_menu1" name="Dashboard" sequence="1"/>-->
+        <!--                    <menuitem id="my_group_sub_menu2" name="Course actions" sequence="2">-->
+        <!--                        <menuitem id="my_group_sub_sub_menu21" name="List of courses" action="my_group_action" sequence="1"/>-->
+        <!--                        <menuitem id="my_group_sub_sub_menu22" name="New course" action="my_group_action" sequence="2"/>-->
+        <!--                    </menuitem>-->
+        <!--                    <menuitem id="my_group_sub_menu3" name="Additional settings" sequence="3">-->
+        <!--                        <menuitem id="my_group_sub_sub_menu31" name="Default values" action="my_group_action" sequence="1"/>-->
+        <!--                    </menuitem>-->
+        <!--                </menuitem>-->
+    </data>
+</odoo>
