@@ -1,0 +1,93 @@
+<odoo>
+    <data>
+        <record id="my_teacher_action" model="ir.actions.act_window">
+            <field name="name">Teacher</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">my_teacher</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new record!
+                </p>
+            </field>
+        </record>
+
+        <record id="my_teacher_form" model="ir.ui.view">
+            <field name="name">my_teacher.form</field>
+            <field name="model">my_teacher</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="first_name"/>
+                                <field name="last_name"/>
+                                <field name="age"/>
+                            </group>
+                            <group>
+                                <field name="phone_number"/>
+                                <field name="address"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="my_teacher_search" model="ir.ui.view">
+            <field name="name">my_teacher.search</field>
+            <field name="model">my_teacher</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <!--                            <separator/>-->
+                    <!--                            <filter name="active" string="Active" domain="[('active', '=', False)]"/>-->
+                </search>
+            </field>
+        </record>
+
+        <record id="my_teacher_tree" model="ir.ui.view">
+            <field name="name">my_teacher.tree</field>
+            <field name="model">my_teacher</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="age"/>
+                    <field name="phone_number"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="my_teacher_kanban" model="ir.ui.view">
+            <field name="name">my_teacher.tree</field>
+            <field name="model">my_teacher</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div style="display: flex; flex-direction: column; align-items: center;">
+                                    <div style="font-size: 20px; font-weight: 500; margin-top: 4px; margin-bottom: 4px;">
+                                        <field name="full_name"/>
+                                    </div>
+                                    <div>
+                                        <field name="age"/>
+                                        yosh
+                                    </div>
+                                    <div class="text-center">
+                                        <field name="address"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <menuitem id="my_teacher_menu" name="Teachers" sequence="1" action="my_teacher_action"/>
+    </data>
+</odoo>

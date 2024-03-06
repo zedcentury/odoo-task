@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <record id="course_rule" model="ir.rule">
+            <field name="name">Access Course</field>
+            <field name="model_id" ref="my_course.model_my_course"/>
+<!--            <field name="domain_force">-->
+<!--                [('create_date','&gt;=', (context_today() - datetime.timedelta(days=7)).strftime('%Y-%m-%d'))]-->
+<!--            </field>-->
+            <!--            <field name="groups" eval="[(4, ref('my_common.common_group_administrator'))]"/>-->
+        </record>
+    </data>
+</odoo>

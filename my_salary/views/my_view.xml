@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="my_salary_action" model="ir.actions.act_window">
+            <field name="name">Salary</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">my_salary</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new record!
+                </p>
+            </field>
+        </record>
+
+        <record id="my_salary_tree" model="ir.ui.view">
+            <field name="name">my_salary.tree</field>
+            <field name="model">my_salary</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="teacher_id"/>
+                    <field name="price"/>
+                </tree>
+            </field>
+        </record>
+
+        <menuitem id="my_salary_menu" name="Salaries" sequence="1" action="my_salary_action"/>
+    </data>
+</odoo>
