@@ -1,0 +1,87 @@
+<odoo>
+    <data>
+        <record id="my_group_action" model="ir.actions.act_window">
+            <field name="name">Group</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">my_group</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new record!
+                </p>
+            </field>
+        </record>
+
+        <record id="my_group_form" model="ir.ui.view">
+            <field name="name">my_group.form.tree.view</field>
+            <field name="model">my_group</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="teacher_id" widget="many2one"/>
+                                <field name="course_id" widget="many2one"/>
+                            </group>
+                            <group>
+                                <field name="student_ids" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+<!--        <record id="my_group_tree" model="ir.ui.view">-->
+<!--            <field name="name">my_group.tree</field>-->
+<!--            <field name="model">my_group</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <tree>-->
+<!--                    <field name="name"/>-->
+<!--                    <field name="number_of_students"/>-->
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="my_group_kanban" model="ir.ui.view">
+            <field name="name">my_group.tree</field>
+            <field name="model">my_group</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <p>
+                                        <strong>Name</strong>
+                                    </p>
+                                    <field name="name"/>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <p>
+                                        <strong>Teacher</strong>
+                                    </p>
+                                    <div>
+                                        <field name="teacher_id"/>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <p>
+                                        <strong>Students</strong>
+                                    </p>
+                                    <div>
+                                        <field name="number_of_students"/>
+                                        ta
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <menuitem id="my_group_menu" name="Groups" sequence="1" action="my_group_action"/>
+    </data>
+</odoo>

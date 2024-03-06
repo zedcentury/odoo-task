@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <record id="common_group_category" model="ir.module.category">
+            <field name="name">Common</field>
+        </record>
+
+        <record id="common_group_sub_category" model="ir.module.category">
+            <field name="name">Level</field>
+            <field name="parent_id" ref="my_common.common_group_category"/>
+        </record>
+
+        <record id="common_group_administrator" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="category_id" ref="my_common.common_group_sub_category"/>
+        </record>
+
+        <record id="common_group_admin" model="res.groups">
+            <field name="name">Admin</field>
+            <field name="category_id" ref="my_common.common_group_sub_category"/>
+            <field name="implied_ids" eval="[(6, 0, [ref('my_common.common_group_administrator')])]"/>
+        </record>
+    </data>
+</odoo>

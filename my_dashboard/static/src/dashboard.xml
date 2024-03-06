@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="my_dashboard.dashboard">
+        <div class="row m-3">
+            <div class="col-4 offset-4">
+                <div class="card">
+                   <div class="card-header">
+                       <h3>Kirim-chiqim</h3>
+                       <select class="form-select" t-model="period.value" t-on-change="getStats">
+                           <option value="">All time</option>
+                           <option value="365">Last year</option>
+                           <option value="180">Last half year</option>
+                           <option value="90">Last quarter</option>
+                           <option value="30">Last month</option>
+                           <option value="7">Last week</option>
+                       </select>
+                   </div>
+                    <div class="card-body">
+                        <DoughnutChart data="kirim_chiqim" color_indexes="color_indexes"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

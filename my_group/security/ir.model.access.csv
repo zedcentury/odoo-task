@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+administrator_my_group,administrator_my_group,model_my_group,my_common.common_group_administrator,1,1,1,1
+admin_my_group,admin_my_group,model_my_group,my_common.common_group_admin,1,1,1,1
